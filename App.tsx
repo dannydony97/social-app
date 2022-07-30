@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, NativeBaseProvider } from "native-base";
+import { NativeBaseProvider } from "native-base";
 
 import theme, { ITheme } from "./src/theme";
 import Authentication from "./src/routes/Authentication";

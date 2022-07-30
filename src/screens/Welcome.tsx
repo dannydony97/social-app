@@ -1,7 +1,7 @@
 import React from "react"
 import { useLinkTo } from "@react-navigation/native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { Button, Center, Heading, Image, ScrollView, Text, View, VStack } from "native-base";
+import { Button, Heading, Image, ScrollView, Text, View, VStack } from "native-base";
 import { SafeAreaView, StyleSheet } from "react-native";
 import { AuthenticationStackParamList } from "../routes/Authentication";
 import { Utils } from "../Utils";
@@ -40,8 +40,11 @@ const Welcome: React.FC<NativeStackScreenProps<AuthenticationStackParamList>> = 
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={{flexGrow: 1}}>
-        <View flex={1} alignItems="center" justifyContent={justifyContent}>
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <View
+          flex={1}
+          alignItems="center"
+          justifyContent={justifyContent}>
           <VStack space={4} width={width} alignItems="center">
             <Heading size="lg">Welcome to {Variables.appicationName}</Heading>
             <Text>Street workout community</Text>
@@ -51,8 +54,14 @@ const Welcome: React.FC<NativeStackScreenProps<AuthenticationStackParamList>> = 
               alt={Variables.appicationName}
               style={styles.logo}
             />
-            <Button width={buttonWidth} variant="solid" onPress={onLogInPress}>Log in</Button>
-            <Button width={buttonWidth} variant="outline" onPress={onSignUpPress}>Sign up</Button>
+            <Button
+              width={buttonWidth}
+              variant="solid"
+              onPress={onLogInPress}>Log in</Button>
+            <Button
+              width={buttonWidth}
+              variant="outline"
+              onPress={onSignUpPress}>Sign up</Button>
           </VStack>
         </View>
       </ScrollView>

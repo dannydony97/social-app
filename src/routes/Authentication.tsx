@@ -13,7 +13,7 @@ export type AuthenticationStackParamList = {
 }
 
 const linking: LinkingOptions<AuthenticationStackParamList> = {
-  prefixes: ['myapp://', 'https://myapp.com', 'https://*.myapp.com'],
+  prefixes: [],
   config: {
     initialRouteName: 'Welcome',
     screens: {
