@@ -9,9 +9,17 @@ export module Utils {
    * @returns platform style
    */
   export function getStyle(webStyle: any, mobileStyle: any): any {
-    if(Platform.OS === 'web') {
+    if(isWeb()) {
       return webStyle;
     }
     return mobileStyle;
+  }
+
+  /**
+   * Tells if the current platform is web or not
+   * @returns true if the current platform is web, false otherwise
+   */
+  export function isWeb(): boolean {
+    return Platform.OS === 'web';
   }
 }
