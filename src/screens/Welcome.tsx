@@ -8,7 +8,6 @@ import { Utils } from "../Utils";
 import { Variables } from "../Variables";
 
 const width = Utils.getStyle(600, "100%");
-const buttonWidth = Utils.getStyle("60%", "90%");
 const justifyContent = Utils.getStyle("center", "flex-start");
 
 /**
@@ -39,7 +38,6 @@ const Welcome: React.FC<NativeStackScreenProps<AuthenticationStackParamList>> = 
   }
 
   return (
-    <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <View
           flex={1}
@@ -55,17 +53,16 @@ const Welcome: React.FC<NativeStackScreenProps<AuthenticationStackParamList>> = 
               style={styles.logo}
             />
             <Button
-              width={buttonWidth}
+              width="90%"
               variant="solid"
               onPress={onLogInPress}>Log in</Button>
             <Button
-              width={buttonWidth}
+              width="90%"
               variant="outline"
               onPress={onSignUpPress}>Sign up</Button>
           </VStack>
         </View>
       </ScrollView>
-    </SafeAreaView >
   );
 }
 

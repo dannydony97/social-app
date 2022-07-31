@@ -1,19 +1,13 @@
 import React from "react";
 import { NativeBaseProvider } from "native-base";
 
-import theme, { ITheme } from "./src/theme";
-import Authentication from "./src/routes/Authentication";
-
-// Making the custom theme typing available
-declare module "native-base" {
-  interface ICustomTheme extends ITheme { }
-}
-
+import { theme } from "./src/theme";
+import Entry from "./Entry";
 
 const App: React.FC<{}> = () => {
   return (
     <NativeBaseProvider theme={theme}>
-      <Authentication />
+      <Entry />
     </NativeBaseProvider>
   );
 }

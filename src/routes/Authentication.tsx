@@ -3,6 +3,9 @@ import { LinkingOptions, NavigationContainer } from "@react-navigation/native";
 import Welcome from "../screens/Welcome";
 import LogIn from "../screens/LogIn";
 import SignUp from "../screens/SignUp";
+import { Utils } from "../Utils";
+import { useColorMode } from "native-base";
+import { navigationDarkTheme, navigationLightTheme } from "../theme";
 
 const Stack = createNativeStackNavigator();
 
@@ -25,9 +28,19 @@ const linking: LinkingOptions<AuthenticationStackParamList> = {
 }
 
 const Authentication: React.FC<{}> = () => {
+
+  const { colorMode } = useColorMode();
+
   return (
-    <NavigationContainer linking={linking}>
-      <Stack.Navigator initialRouteName="welcome">
+    <NavigationContainer
+      linking={linking}
+      theme={colorMode === 'dark' ? navigationDarkTheme : navigationLightTheme}>
+      <Stack.Navigator
+        initialRouteName="welcome"
+        screenOptions={{
+          headerShown: !Utils.isWeb()
+        }}
+      >
         <Stack.Screen
           name="Welcome"
           component={Welcome}
