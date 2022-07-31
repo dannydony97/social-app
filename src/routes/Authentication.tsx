@@ -38,7 +38,8 @@ const Authentication: React.FC<{}> = () => {
       <Stack.Navigator
         initialRouteName="welcome"
         screenOptions={{
-          headerShown: !Utils.isWeb()
+          headerShown: !Utils.isWeb(),
+          headerTransparent: true,
         }}
       >
         <Stack.Screen
