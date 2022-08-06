@@ -2,7 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { LinkingOptions, NavigationContainer } from "@react-navigation/native";
 import Welcome from "../screens/Welcome";
 import LogIn from "../screens/LogIn";
-import SignUp from "../screens/SignUp";
+import SignIn from "../screens/SignIn";
 import { Utils } from "../Utils";
 import { useColorMode } from "native-base";
 import { navigationDarkTheme, navigationLightTheme } from "../theme";
@@ -12,7 +12,7 @@ const Stack = createNativeStackNavigator();
 export type AuthenticationStackParamList = {
   Welcome: undefined
   LogIn: undefined
-  SignUp: undefined
+  SignIn: undefined
 }
 
 const linking: LinkingOptions<AuthenticationStackParamList> = {
@@ -22,7 +22,7 @@ const linking: LinkingOptions<AuthenticationStackParamList> = {
     screens: {
       Welcome: 'welcome',
       LogIn: 'login',
-      SignUp: 'signup'
+      SignIn: 'signin'
     }
   }
 }
@@ -57,10 +57,10 @@ const Authentication: React.FC<{}> = () => {
           }}
         />
         <Stack.Screen
-          name="SignUp"
-          component={SignUp}
+          name="SignIn"
+          component={SignIn}
           options={{
-            title: "Sign Up"
+            title: "Sign in"
           }}
         />
       </Stack.Navigator>

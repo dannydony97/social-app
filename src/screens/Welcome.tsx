@@ -26,13 +26,13 @@ const Welcome: React.FC<NativeStackScreenProps<AuthenticationStackParamList>> = 
   }
 
   /**
-   * On 'Sign up' button press
+   * On 'Sign in' button press
    */
-  const onSignUpPress = () => {
+  const onSignInPress = () => {
     if (Utils.isWeb()) {
-      linkTo("/signup");
+      linkTo("/signin");
     }
-    navigation.navigate("SignUp");
+    navigation.navigate("SignIn");
   }
 
   return (
@@ -54,8 +54,8 @@ const Welcome: React.FC<NativeStackScreenProps<AuthenticationStackParamList>> = 
       <Button
         width="90%"
         variant="outline"
-        onPress={onSignUpPress}
-      >Sign up
+        onPress={onSignInPress}
+      >Sign in
       </Button>
     </ScrollableCenteredContainer>
   );
