@@ -3,8 +3,13 @@ export interface BaseProps {
   children?: JSX.Element | JSX.Element[]
 }
 
-export interface IUser {
-  name: string;
+export interface UserCredentials {
   email: string;
   password: string;
 }
+
+export interface UserSchema {
+  name: string;
+}
+
+export type UserDetails = UserCredentials & UserSchema;

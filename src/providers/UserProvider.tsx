@@ -1,18 +1,18 @@
 import { createUserWithEmailAndPassword, UserCredential } from "firebase/auth";
 import React from "react";
 import { auth } from "../firebase-config";
-import { BaseProps, IUser } from "../interfaces";
+import { BaseProps, UserDetails } from "../interfaces";
 
 interface IUserContext {
-  signIn: (user: IUser) => Promise<UserCredential>
+  signIn: (user: UserDetails) => Promise<UserCredential>
 }
 
 const UserContext: React.Context<IUserContext | undefined> = React.createContext<IUserContext | undefined>(undefined);
 
 const UserProvider: React.FC<BaseProps> = ({ children }) => {
 
-  const signIn = async (user: IUser): Promise<UserCredential> => {
-    return await createUserWithEmailAndPassword(auth, user.email, user.password);
+  const signIn = async (userDetails: UserDetails): Promise<UserCredential> => {
+    return await createUserWithEmailAndPassword(auth, userDetails.email, userDetails.password);
   }
 
   return (
@@ -27,7 +27,7 @@ const UserProvider: React.FC<BaseProps> = ({ children }) => {
 function useUser(): IUserContext {
   const user = React.useContext(UserContext);
   if (!user) {
-    throw new Error("Using 'useUser()' outside of of UserProvider?");
+    throw new Error("Calling 'useUser()' outside of of UserProvider?");
   }
   return user;
 }

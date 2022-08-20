@@ -3,7 +3,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { AuthenticationStackParamList } from "../routes/Authentication";
 import { Button, FormControl, Heading, Input, Stack, } from "native-base";
 import ScrollableCenteredContainer from "../components/ScrollableCenteredContainer";
-import { IUser } from "../interfaces";
+import { UserDetails } from "../interfaces";
 import { useUser } from "../providers/UserProvider";
 
 interface SignInFieldSchema {
@@ -14,7 +14,7 @@ interface SignInFieldSchema {
   value: string
 }
 
-const signInFieldsDetails: Map<keyof IUser, SignInFieldSchema> = new Map([
+const signInFieldsDetails: Map<keyof UserDetails, SignInFieldSchema> = new Map([
   ['name', {
     label: "User name",
     placeholder: "Type your user name",
@@ -41,7 +41,7 @@ const SignIn: React.FC<NativeStackScreenProps<AuthenticationStackParamList>> = (
   const { signIn } = useUser();
 
   const onSignIn = async () => {
-    const user: IUser = {
+    const user: UserDetails = {
       name: '',
       email: '',
       password: ''
